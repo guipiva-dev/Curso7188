@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { environment } from './../../environments/environment';
+import { OrderModel } from '../models/order.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -20,12 +21,12 @@ export class DataService {
     return this.http.get(`${this.baseUrl}/v1/report/ms`);
   }
 
-  public getOrders() {
-    return this.http.get(`${this.baseUrl}/v1/orders/`);
+  public getOrders(): Observable<OrderModel> {
+    return this.http.get<OrderModel>(`${this.baseUrl}/v1/orders/`);
   }
 
-  public getOrder(order: string) {
-    return this.http.get(`${this.baseUrl}/v1/orders/${order}`);
+  public getOrder(order: string): Observable<OrderModel> {
+    return this.http.get<OrderModel>(`${this.baseUrl}/v1/orders/${order}`);
   }
 
 
