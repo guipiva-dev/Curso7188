@@ -20,6 +20,13 @@
               </ion-icon>
             </ion-item>            
           </ion-list>
+          <br>
+          <ion-button color="light" expand="full" size="large" class="animated fadein" [disabled]="form.invalid"
+          (click)="submit()">
+            Entrar</ion-button>
+            <ion-button color="light" expand="full" fill="clear" class="animated fadein"
+          (click)="resetPassword()">
+            Esqueci Minha Senha</ion-button>
         </form>
       </ion-col>
     </ion-row>
