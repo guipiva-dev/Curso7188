@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { LoadingController, NavController } from '@ionic/angular';
+import { LoadingController, NavController, ToastController } from '@ionic/angular';
 
 import { DataService } from './../../../services/data.service';
+import { UserModel } from './../../../models/user.model';
 
 @Component({
   selector: 'app-login',
@@ -18,6 +19,7 @@ hide: boolean = true;
     private fb: FormBuilder,
     private LoadingCtrl: LoadingController,
     private navCtrl: NavController,
+    private toastr: ToastController,
     private dataService: DataService
   ) { 
     this.form = fb.group({
@@ -37,8 +39,38 @@ hide: boolean = true;
   ngOnInit() {
   }
 
+  async submit() {
+    if(this.form.invalid) {
+      return;
+    }
+
+    const loading = await this.LoadingCtrl.create({message: 'Autenticando...'});
+    loading.present();
+
+    this.dataService.authenticate(this.form.value)
+    .subscribe(
+      (res: UserModel) => {
+        this.navCtrl.navigateRoot('/');
+        console.log('ok');
+      },
+      (err) => {
+        this.showError("Usuário ou senha inválidos.");
+        console.log('erro');
+      },
+      () => {
+        loading.dismiss();
+        console.log('done');
+      }
+    )
+  }
+
   toggleHide() {
     this.hide = !this.hide;
+  }
+
+  async showError(message: string) {
+    const error = await this.toastr.create({ message: message, showCloseButton: true, closeButtonText: 'Fechar', duration: 3000 })
+    error.present();
   }
 
 }
