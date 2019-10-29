@@ -3,17 +3,20 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { LoadingComponent } from './loading/loading.component';
+import { MonthlySalesChartComponent } from './monthly-sales-chart/monthly-sales-chart.component';
 
 @NgModule({
   declarations: [
-    LoadingComponent
+    LoadingComponent,
+    MonthlySalesChartComponent
   ],
   imports: [
     CommonModule,
     IonicModule
   ],
   exports: [
-    LoadingComponent
+    LoadingComponent,
+    MonthlySalesChartComponent
   ]
 })
 export class ComponentsModule { }
