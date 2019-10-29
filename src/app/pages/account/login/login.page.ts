@@ -1,3 +1,4 @@
+import { SecurityUtils } from './../../../utils/security.utils';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoadingController, NavController, ToastController } from '@ionic/angular';
@@ -50,12 +51,14 @@ hide: boolean = true;
     this.dataService.authenticate(this.form.value)
     .subscribe(
       (res: UserModel) => {
+        SecurityUtils.set(res);
         this.navCtrl.navigateRoot('/');
         console.log('ok');
       },
       (err) => {
         this.showError("Usuário ou senha inválidos.");
         console.log('erro');
+        loading.dismiss();
       },
       () => {
         loading.dismiss();
