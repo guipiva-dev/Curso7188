@@ -6,11 +6,15 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
+import { FramePage } from './pages/shared/frame/frame.page';
 
 // import { ComponentsModule } from './components/components.module';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    FramePage
+  ],
   entryComponents: [],
   imports: [
     BrowserModule, 
