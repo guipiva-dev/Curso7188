@@ -85,5 +85,4 @@ hide: boolean = true;
     const loading = await this.LoadingCtrl.create({ message: "Restaurando sua senha..." });
     loading.present();
   }
-
 }
