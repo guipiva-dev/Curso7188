@@ -21,8 +21,8 @@ export class DataService {
     return this.http.get(`${this.baseUrl}/v1/reports/ms`);
   }
 
-  public getOrders(): Observable<OrderModel> {
-    return this.http.get<OrderModel>(`${this.baseUrl}/v1/orders/`);
+  public getOrders(): Observable<OrderModel[]> {
+    return this.http.get<OrderModel[]>(`${this.baseUrl}/v1/orders/`);
   }
 
   public getOrder(order: string): Observable<OrderModel> {

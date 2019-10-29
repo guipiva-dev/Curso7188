@@ -12,6 +12,8 @@ const routes: Routes = [
     component: FramePage,
     children: [
       { path: '', loadChildren: './pages/home/home.module#HomePageModule' },
+      { path: 'orders', loadChildren: './pages/store/orders/orders.module#OrdersPageModule' },
+      { path: 'orders/:number', loadChildren: './pages/store/order-details/order-details.module#OrderDetailsPageModule' }
     ]
   }
 ];
