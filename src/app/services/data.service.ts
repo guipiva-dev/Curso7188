@@ -18,7 +18,7 @@ export class DataService {
   }
 
   public getMonthlySalesChartData() {
-    return this.http.get(`${this.baseUrl}/v1/report/ms`);
+    return this.http.get(`${this.baseUrl}/v1/reports/ms`);
   }
 
   public getOrders(): Observable<OrderModel> {
