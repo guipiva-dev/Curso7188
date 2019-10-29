@@ -76,4 +76,14 @@ hide: boolean = true;
     error.present();
   }
 
+  async resetPassword() {
+    if(this.form.controls["username"].invalid) {
+      this.showError("Nome de usuário inválido.")
+      return;
+    }
+
+    const loading = await this.LoadingCtrl.create({ message: "Restaurando sua senha..." });
+    loading.present();
+  }
+
 }
