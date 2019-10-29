@@ -17,6 +17,8 @@ export class OrderListComponent implements OnInit {
 
   ngOnInit() {
 
+    console.log('iniciou');
+
     this.dataService.getOrders()
       .subscribe(
         (res) => {
@@ -26,6 +28,8 @@ export class OrderListComponent implements OnInit {
           console.log(err);
         }
       );
+      console.log('iniciou2');
+      console.log(this.orders);
   }
 
   goToOrder(order: string) {

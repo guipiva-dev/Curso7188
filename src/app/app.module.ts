@@ -11,6 +11,7 @@ import { FramePage } from './pages/shared/frame/frame.page';
 
 import { ManagerGuardService } from './guards/manager-guard.service';
 import { AuthGuardService } from './guards/auth-guard.service';
+import { ComponentsModule } from './components/components.module';
 
 // import { ComponentsModule } from './components/components.module';
 
@@ -24,7 +25,8 @@ import { AuthGuardService } from './guards/auth-guard.service';
     BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule,
-    HttpClientModule],
+    HttpClientModule,
+    ComponentsModule],
   providers: [
     AuthGuardService,
     ManagerGuardService,
