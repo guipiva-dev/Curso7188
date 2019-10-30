@@ -13,11 +13,9 @@ export class OrderListComponent implements OnInit {
   orders: OrderModel[];
 
   constructor(private dataService: DataService,
-    private navCtrl: NavController) { }
+              private navCtrl: NavController) { }
 
   ngOnInit() {
-
-    console.log('iniciou');
 
     this.dataService.getOrders()
       .subscribe(
@@ -28,8 +26,6 @@ export class OrderListComponent implements OnInit {
           console.log(err);
         }
       );
-      console.log('iniciou2');
-      console.log(this.orders);
   }
 
   goToOrder(order: string) {

@@ -10,7 +10,7 @@ import { NavController, MenuController } from '@ionic/angular';
 export class FramePage implements OnInit {
 
   constructor(private navCtrl: NavController,
-    private menuCtrl: MenuController) { }
+              private menuCtrl: MenuController) { }
 
   ngOnInit() {
   }

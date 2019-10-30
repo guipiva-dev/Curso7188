@@ -7,6 +7,5 @@ export class UserModel {
         public token: string,
         public username: string
     ) {
-        
     }
 }

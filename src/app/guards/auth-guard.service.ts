@@ -8,7 +8,7 @@ export class AuthGuardService implements CanActivate {
   constructor(private router: Router) { }
 
   canActivate() {
-    if(!SecurityUtils.hasToken()) {
+    if (!SecurityUtils.hasToken()) {
       this.router.navigate(['/login']);
       return false;
     }

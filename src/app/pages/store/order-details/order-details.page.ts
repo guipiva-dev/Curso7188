@@ -16,11 +16,11 @@ export class OrderDetailsPage implements OnInit {
   order: OrderModel;
 
   constructor(private dataService: DataService,
-    private route: ActivatedRoute) { }
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
-    let number = this.route.snapshot.paramMap.get('number');
-    this.dataService.getOrder(number)
+    const orderNumber = this.route.snapshot.paramMap.get('number');
+    this.dataService.getOrder(orderNumber)
       .subscribe(
         (res) => {
           this.order = res;
