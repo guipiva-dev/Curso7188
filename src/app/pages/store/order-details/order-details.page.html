@@ -46,3 +46,35 @@
     <ion-button color="primary" [disabled]="!isManager()">Editar</ion-button>
     <ion-button color="danger" [disabled]="!isManager()">Cancelar Pedido</ion-button>
   </p>
+
+  <ion-list>
+      <ion-list-header>
+        <ion-label>Itens do Pedido</ion-label>
+      </ion-list-header>
+      <ion-item *ngFor="let item of order.items">
+        <ion-label>
+          <strong>{{ item.code }}</strong><br>
+          {{ item.title }}
+        </ion-label>
+        <h4 slot="end">{{ item.price/100 | currency: 'BRL'}}</h4>
+      </ion-item>
+      <ion-list-header>
+        <ion-label>Frete</ion-label>
+      </ion-list-header>
+      <ion-item>
+        <h3 slot="end">{{ order.deliveryFee/100 | currency: 'BRL'}}</h3>
+      </ion-item>
+      <ion-list-header>
+        <ion-label>Desconto</ion-label>
+      </ion-list-header>
+      <ion-item>
+        <h3 slot="end">{{ order.discount/100 | currency: 'BRL'}}</h3>
+      </ion-item>
+      <ion-list-header>
+        <ion-label>Total</ion-label>
+      </ion-list-header>
+      <ion-item>
+        <h1 slot="end">{{ order.total/100 | currency: 'BRL'}}</h1>
+      </ion-item>
+    </ion-list>
+  </ion-content>
