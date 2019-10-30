@@ -11,7 +11,7 @@ export class SecurityUtils {
     public static get(): UserModel {
         const data = localStorage.getItem('eshop.data');
 
-        if(!data) {
+        if (!data) {
             return null;
         }
 
@@ -21,7 +21,7 @@ export class SecurityUtils {
     public static hasToken(): boolean {
         const user = this.get();
 
-        if(user && user.token) {
+        if (user && user.token) {
             return true;
         }
         return false;
@@ -30,9 +30,9 @@ export class SecurityUtils {
     public static isInRole(role: string): boolean {
         const user = this.get();
 
-        if(!user
+        if (!user
             || !user.roles
-            || user.roles.length == 0) {
+            || user.roles.length === 0) {
             return false;
         }
 

@@ -14,7 +14,7 @@ import { UserModel } from './../../../models/user.model';
 export class LoginPage implements OnInit {
 
 form: FormGroup;
-hide: boolean = true;
+hide = true;
 
   constructor(
     private fb: FormBuilder,
@@ -22,7 +22,7 @@ hide: boolean = true;
     private navCtrl: NavController,
     private toastr: ToastController,
     private dataService: DataService
-  ) { 
+  ) {
     this.form = fb.group({
       username: ['',
       Validators.compose([
@@ -41,30 +41,28 @@ hide: boolean = true;
   }
 
   async submit() {
-    if(this.form.invalid) {
+    if (this.form.invalid) {
       return;
     }
 
     const loading = await this.LoadingCtrl.create({message: 'Autenticando...'});
-    loading.present();
+    await loading.present();
 
     this.dataService.authenticate(this.form.value)
     .subscribe(
       (res: UserModel) => {
         SecurityUtils.set(res);
         this.navCtrl.navigateRoot('/');
-        console.log('ok');
       },
       (err) => {
-        this.showError("Usuário ou senha inválidos.");
-        console.log('erro');
+        this.showError('Usuário ou senha inválidos.');
+        console.log(err);
         loading.dismiss();
       },
       () => {
         loading.dismiss();
-        console.log('done');
       }
-    )
+    );
   }
 
   toggleHide() {
@@ -72,17 +70,17 @@ hide: boolean = true;
   }
 
   async showError(message: string) {
-    const error = await this.toastr.create({ message: message, showCloseButton: true, closeButtonText: 'Fechar', duration: 3000 })
-    error.present();
+    const error = await this.toastr.create({ message, showCloseButton: true, closeButtonText: 'Fechar', duration: 3000 });
+    await error.present();
   }
 
   async resetPassword() {
-    if(this.form.controls["username"].invalid) {
-      this.showError("Nome de usuário inválido.")
+    if (this.form.controls.username.invalid) {
+      this.showError('Nome de usuário inválido.');
       return;
     }
 
-    const loading = await this.LoadingCtrl.create({ message: "Restaurando sua senha..." });
-    loading.present();
+    const loading = await this.LoadingCtrl.create({ message: 'Restaurando sua senha...', duration: 3000 });
+    await loading.present();
   }
 }

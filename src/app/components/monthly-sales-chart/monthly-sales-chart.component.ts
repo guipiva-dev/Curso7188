@@ -23,14 +23,14 @@ export class MonthlySalesChartComponent implements AfterViewInit {
       (err) => {
         console.log(err);
       }
-    )
+    );
   }
 
   render() {
-    var el: any = document.getElementById("myChart");
-    var ctx = el.getContext('2d');
+    const el: any = document.getElementById('myChart');
+    const ctx = el.getContext('2d');
 
-    var myChart = new Chart(ctx, {
+    const myChart = new Chart(ctx, {
       type: 'bar',
       data: this.data,
       options: {

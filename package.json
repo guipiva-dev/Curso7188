@@ -39,6 +39,7 @@
     "@angular/compiler-cli": "~8.1.2",
     "@angular/language-service": "~8.1.2",
     "@ionic/angular-toolkit": "~2.0.0",
+    "@ionic/v4-migration-tslint": "^1.7.1",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
@@ -55,5 +56,14 @@
     "tslint": "~5.15.0",
     "typescript": "~3.4.3"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "main": "karma.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guipiva-dev/Curso7188.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/guipiva-dev/Curso7188/issues"
+  }
 }

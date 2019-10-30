@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class DataService {
 
-  baseUrl: string = 'http://localhost:7188';
+  baseUrl = 'http://localhost:7188';
 
   constructor(private http: HttpClient) { }
 
